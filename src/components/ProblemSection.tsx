@@ -1,19 +1,23 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { ChartBar, SmileyXEyes, ArrowsClockwise } from "@phosphor-icons/react";
 
 const problems = [
   {
-    icon: "📊",
+    icon: ChartBar,
+    color: "#3b82f6",
     title: "Tracking Feels Boring",
     desc: "Traditional apps rely on numbers and charts that fail to keep you engaged daily.",
   },
   {
-    icon: "😵",
+    icon: SmileyXEyes,
+    color: "#ef4444",
     title: "No Real Motivation",
-    desc: "There’s no emotional connection or reward system to help you stay consistent.",
+    desc: "There's no emotional connection or reward system to help you stay consistent.",
   },
   {
-    icon: "🔄",
+    icon: ArrowsClockwise,
+    color: "#f59e0b",
     title: "Habits Break Easily",
     desc: "Without feedback or consequences, users quickly stop tracking expenses.",
   },
@@ -46,19 +50,24 @@ const ProblemSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {problems.map((p, i) => (
-            <motion.div
-              key={i}
-              className="glass-card p-8 text-center"
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: i * 0.2 }}
-            >
-              <span className="text-4xl mb-4 block">{p.icon}</span>
-              <h3 className="font-semibold text-lg mb-2">{p.title}</h3>
-              <p className="text-sm text-muted-foreground">{p.desc}</p>
-            </motion.div>
-          ))}
+          {problems.map((p, i) => {
+            const Icon = p.icon;
+            return (
+              <motion.div
+                key={i}
+                className="glass-card p-8 text-center"
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: i * 0.2 }}
+              >
+                <div className="flex justify-center mb-4">
+                  <Icon size={40} weight="duotone" color={p.color} />
+                </div>
+                <h3 className="font-semibold text-lg mb-2">{p.title}</h3>
+                <p className="text-sm text-muted-foreground">{p.desc}</p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -40,9 +40,8 @@ const HowItWorks = () => {
               return (
                 <motion.div
                   key={i}
-                  className={`relative flex items-start gap-6 md:gap-12 ${
-                    isLeft ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}
+                  className={`relative flex items-start gap-6 md:gap-12 ${isLeft ? "md:flex-row" : "md:flex-row-reverse"
+                    }`}
                   initial={{ opacity: 0, x: isLeft ? -30 : 30 }}
                   animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.2 + i * 0.15 }}

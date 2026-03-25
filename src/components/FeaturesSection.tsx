@@ -1,34 +1,41 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { TreeEvergreen, Plant, ChartBar, Leaf, Brain, Trophy } from "@phosphor-icons/react";
 
 const features = [
   {
-    icon: "🌲",
+    icon: TreeEvergreen,
+    color: "#22c55e",
     title: "Living Forest Ecosystem",
     desc: "Your spending decisions directly shape a living forest that grows or weakens over time.",
   },
   {
-    icon: "🌱",
+    icon: Plant,
+    color: "#4ade80",
     title: "Daily Tree System",
     desc: "Each day becomes a tree — healthy when you save, damaged when you overspend.",
   },
   {
-    icon: "📊",
+    icon: ChartBar,
+    color: "#3b82f6",
     title: "Visual Spending Awareness",
     desc: "Understand your habits through immersive visuals instead of boring numbers.",
   },
   {
-    icon: "🌿",
+    icon: Leaf,
+    color: "#10b981",
     title: "Behavior-Based Growth",
     desc: "Consistent discipline transforms into a stronger and richer ecosystem.",
   },
   {
-    icon: "🧠",
+    icon: Brain,
+    color: "#a855f7",
     title: "Emotional Spending Insights",
     desc: "Discover patterns behind your spending behavior and improve decisions.",
   },
   {
-    icon: "🏆",
+    icon: Trophy,
+    color: "#f59e0b",
     title: "Motivation & Progress",
     desc: "Track your growth with achievements, milestones, and visual rewards.",
   },
@@ -66,37 +73,40 @@ const FeaturesSection = () => {
 
         {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((f, i) => (
-            <motion.div
-              key={i}
-              className="glass-card-glow p-6 group cursor-default transition-all duration-300"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-              whileHover={{ y: -8 }}
-            >
-              {/* Icon */}
-              <motion.span
-                className="text-3xl block mb-4"
-                whileHover={{ scale: 1.2, rotate: 8 }}
+          {features.map((f, i) => {
+            const Icon = f.icon;
+            return (
+              <motion.div
+                key={i}
+                className="glass-card-glow p-6 group cursor-default transition-all duration-300"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
+                whileHover={{ y: -8 }}
               >
-                {f.icon}
-              </motion.span>
+                {/* Icon */}
+                <motion.div
+                  className="mb-4"
+                  whileHover={{ scale: 1.2, rotate: 8 }}
+                >
+                  <Icon size={36} weight="duotone" color={f.color} />
+                </motion.div>
 
-              {/* Title */}
-              <h3 className="text-base font-heading text-foreground font-semibold mb-2">
-                {f.title}
-              </h3>
+                {/* Title */}
+                <h3 className="text-base font-heading text-foreground font-semibold mb-2">
+                  {f.title}
+                </h3>
 
-              {/* Desc */}
-              <p className="text-sm text-muted-foreground font-body leading-relaxed">
-                {f.desc}
-              </p>
+                {/* Desc */}
+                <p className="text-sm text-muted-foreground font-body leading-relaxed">
+                  {f.desc}
+                </p>
 
-              {/* Glow line (NEW 🔥) */}
-              <div className="mt-4 h-0.5 w-0 group-hover:w-full bg-primary transition-all duration-300" />
-            </motion.div>
-          ))}
+                {/* Glow line */}
+                <div className="mt-4 h-0.5 w-0 group-hover:w-full bg-primary transition-all duration-300" />
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
