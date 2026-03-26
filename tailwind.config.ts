@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Cinzel", "serif"],
+        display: ["Montserrat", "Poppins", "sans-serif"],
         body: ["DM Sans", "sans-serif"],
         heading: ["Montserrat", "sans-serif"],
         speech: ["Lora", "serif"],

@@ -32,7 +32,7 @@ const HowItWorks = () => {
 
         <div className="relative">
           {/* Vertical line connector */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-border/50 md:-translate-x-px" />
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-1 bg-primary/20 md:-translate-x-1/2 rounded-full" />
 
           <div className="space-y-12">
             {steps.map((s, i) => {

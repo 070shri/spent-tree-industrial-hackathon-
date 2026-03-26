@@ -11,6 +11,9 @@ import Signup from "./pages/Signup.tsx";
 import Onboarding from "./pages/Onboarding.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import { LeafCursor } from "./components/LeafCursor";
+import { FallingLeavesBackground } from "./components/FallingLeavesBackground";
+
 
 const queryClient = new QueryClient();
 
@@ -18,6 +21,8 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <AuthProvider>
+        <FallingLeavesBackground />
+        <LeafCursor />
         <Toaster />
         <Sonner />
 
